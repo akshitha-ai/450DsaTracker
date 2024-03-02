@@ -1,18 +1,21 @@
 import {
+    Box,
     Button,
+    Center,
     FormControl,
     FormLabel,
     Input,
+    Text,
     useToast,
     VStack,
 } from '@chakra-ui/react'
 import axios from 'axios'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function SignupForm() {
     const toast = useToast()
-    const navigate = useNavigate() // Hook for programmatically navigating
+    const navigate = useNavigate()
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -20,12 +23,8 @@ function SignupForm() {
         const data = Object.fromEntries(formData)
 
         try {
-            // eslint-disable-next-line no-unused-vars
-            const response = await axios.post(
-                'http://localhost:1247/api/auth/signup',
-                data
-            )
-            localStorage.setItem('username', data.username) // Assuming the signup is successful and username is what you want to store
+            await axios.post('http://localhost:1247/api/auth/signup', data)
+            localStorage.setItem('username', data.username)
             toast({
                 title: 'Signup successful.',
                 description: 'Your account has been created successfully.',
@@ -33,7 +32,7 @@ function SignupForm() {
                 duration: 9000,
                 isClosable: true,
             })
-            navigate('/') // Navigate to the homepage after successful signup
+            navigate('/')
         } catch (error) {
             toast({
                 title: 'Signup failed.',
@@ -48,25 +47,45 @@ function SignupForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <VStack spacing={4}>
-                <FormControl isRequired>
-                    <FormLabel htmlFor="username">Username</FormLabel>
-                    <Input id="username" name="username" type="text" />
-                </FormControl>
-                <FormControl isRequired>
-                    <FormLabel htmlFor="email">Email</FormLabel>
-                    <Input id="email" name="email" type="email" />
-                </FormControl>
-                <FormControl isRequired>
-                    <FormLabel htmlFor="password">Password</FormLabel>
-                    <Input id="password" name="password" type="password" />
-                </FormControl>
-                <Button type="submit" colorScheme="blue">
-                    Sign Up
-                </Button>
-            </VStack>
-        </form>
+        <Center h="100vh">
+            <Box
+                border="1px"
+                borderColor="gray.200"
+                p={6}
+                borderRadius="md"
+                w="md"
+            >
+                <form onSubmit={handleSubmit}>
+                    <VStack spacing={4}>
+                        <FormControl isRequired>
+                            <FormLabel htmlFor="username">Username</FormLabel>
+                            <Input id="username" name="username" type="text" />
+                        </FormControl>
+                        <FormControl isRequired>
+                            <FormLabel htmlFor="email">Email</FormLabel>
+                            <Input id="email" name="email" type="email" />
+                        </FormControl>
+                        <FormControl isRequired>
+                            <FormLabel htmlFor="password">Password</FormLabel>
+                            <Input
+                                id="password"
+                                name="password"
+                                type="password"
+                            />
+                        </FormControl>
+                        <Button type="submit" colorScheme="blue" width="full">
+                            Sign Up
+                        </Button>
+                        <Text mt={2}>
+                            Already have an account?{' '}
+                            <Link color="teal.500" to="/login">
+                                Login
+                            </Link>
+                        </Text>
+                    </VStack>
+                </form>
+            </Box>
+        </Center>
     )
 }
 
