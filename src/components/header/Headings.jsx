@@ -3,7 +3,7 @@ import { Flex, Text } from '@chakra-ui/react'
 import { DarkModeToggle } from '../icons/ProjectIcons.jsx'
 
 const Headings = ({ data, setData }) => {
-    const heading = 'A2Z DSA Tracker'
+    const heading = '450 DSA Tracker'
     const isDarkMode = data.data.header.darkMode
     return (
         <Flex
