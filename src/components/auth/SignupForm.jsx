@@ -47,13 +47,16 @@ function SignupForm() {
     }
 
     return (
-        <Center h="100vh">
-            <Box
+        <Center h="100vh" backgroundImage="url('/background.jpg')" >
+            <Box Box
                 border="1px"
                 borderColor="gray.200"
                 p={6}
                 borderRadius="md"
                 w="md"
+                backgroundColor="white"
+                backgroundSize="cover"
+                backgroundPosition="center"
             >
                 <form onSubmit={handleSubmit}>
                     <VStack spacing={4}>
@@ -85,7 +88,7 @@ function SignupForm() {
                     </VStack>
                 </form>
             </Box>
-        </Center>
+        </Center >
     )
 }
 

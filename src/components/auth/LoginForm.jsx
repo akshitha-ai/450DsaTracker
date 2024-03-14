@@ -80,13 +80,16 @@ function LoginForm() {
     }
 
     return (
-        <Center h="100vh">
+        <Center h="100vh" backgroundImage="url('/background.jpg')">
             <Box
                 border="1px"
                 borderColor="gray.200"
                 p={6}
                 borderRadius="md"
                 w="md"
+                backgroundColor="white"
+                backgroundSize="cover"
+                backgroundPosition="center"
             >
                 <form onSubmit={handleSubmit}>
                     <VStack spacing={4}>
