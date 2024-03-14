@@ -4242,7 +4242,7 @@ const ultimateData = {
                                 questionHeading: 'Fruit Into Baskets',
                                 questionLink: '',
                                 gfgLink: '',
-                                leetCodeLink: '',
+                                leetCodeLink: 'https://leetcode.com/problems/fruit-into-baskets/description/',
                                 youTubeLink: '',
                                 isDone: false,
                                 isBookmarked: false,
