@@ -48,7 +48,7 @@ function SignupForm() {
 
     return (
         <Center h="100vh" backgroundImage="url('/background.jpg')" >
-            <Box Box
+            <Box
                 border="1px"
                 borderColor="gray.200"
                 p={6}
@@ -88,7 +88,7 @@ function SignupForm() {
                     </VStack>
                 </form>
             </Box>
-        </Center >
+        </Center>
     )
 }
 
